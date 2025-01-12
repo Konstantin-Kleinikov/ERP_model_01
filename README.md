@@ -1,2 +1,13 @@
 # ERP_model_01
-Simple ERP module with Object Oriented approach and patterns
+Simple ERP model with Object Oriented approach and patterns
+
+## Modules
+
+### Master Data (com)
+...
+
+### Sales (sls)
+...
+
+### Purchases (pur)
+...
