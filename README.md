@@ -12,8 +12,8 @@ The most common super-class [ErpObject|com/ERP_Object.py] is used:
 * to generate a new sequence number for any object within the numbering prefix
 * to set generic attributes for child any object
 
-Base module com/ERP_Master_Data.py allows is used for:
-* getting for currency rate that is effective at document date of object.
+Base module com/*ERP_Master_Data.py* allows is used for:
+* getting the currency rate that is effective at document date of an object.
 
 ### Sales (sls)
 ...
