@@ -7,7 +7,7 @@ The main.py module runs the creation of objects
 ## The Project Structure
 
 ### Master Data (com)
-The most common super-class [ErpObject|com/ERP_Object.py] is used:
+The most common super-class __ErpObject__ in [com/ERP_Object.py](https://github.com/Konstantin-Kleinikov/ERP_model_01/blob/master/com/ERP_Master_Data.py) module is used:
 * to handle a csv-file read/write activities for any chaild object
 * to generate a new sequence number for any object within the numbering prefix
 * to set generic attributes for child any object
