@@ -1,6 +1,6 @@
 # ERP_model_01
 This simple ERP-model allows to create and handle business-partners, items, sales orders and financial documents
-using different patterns and techniques in Object-Oriented Programming.
+using different patterns and techniques in Object-Oriented Python Programming.
 
 The [main.py](https://github.com/Konstantin-Kleinikov/ERP_model_01/blob/master/main.py) module runs the creation and handling of objects.
 
