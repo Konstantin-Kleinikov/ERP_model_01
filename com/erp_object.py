@@ -2,7 +2,6 @@
 import csv, os
 
 
-#PROJECT_PATH = 'd:\KKleinikov\Python\PycharmProjects\ERP-model-01\ '
 PROJECT_PATH = os.getcwd() + os.sep  # use the 'get current working directory' function
 last_used_numbers: dict[str, int] = dict()
 
@@ -49,7 +48,7 @@ class ErpObject:
         :param self: ERP object
         :return: new CSV-file with record or new record in existing CSV-file
         """
-        csv_file = type(self).__name__ + 's' + '.csv'
+        csv_file = type(self).__name__.lower() + 's' + '.csv'
         input_data = self.__dict__
         field_names = [key for key in input_data.keys()]
 

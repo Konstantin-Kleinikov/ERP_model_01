@@ -2,8 +2,8 @@
 from __future__ import annotations
 from datetime import datetime as dt
 
-from com.ERP_Document import Document
-from com.ERP_Business_Partner import Customer
+from com.erp_document import Document
+from com.erp_business_partner import Customer
 
 
 class SalesOrder(Document):

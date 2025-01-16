@@ -1,8 +1,8 @@
 """Module for handling of business-partners"""
-from com.ERP_Object import ErpObject
+from com.erp_object import ErpObject
 
-business_partners = {'SUP000000001': [{'name': 'ОАО "Силовые механизмы"', 'tax_id': 9729219090}],
-                     'CUS000000001': [{'name': 'ООО "Синапс"', 'tax_id': 9729219089}]
+business_partners = {'SUP000000001': [{'name': 'JSC "Powerful engines"', 'tax_id': 9729219090}],
+                     'CUS000000001': [{'name': 'Doo "Sinaps"', 'tax_id': 9729219089}]
                      }
 
 

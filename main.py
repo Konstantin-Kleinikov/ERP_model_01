@@ -1,8 +1,8 @@
 """Main program script"""
-from com.ERP_Business_Partner import Customer, Supplier
-from com.ERP_Object import ErpObject
-from sls.ERP_Sales_Order import SalesOrder
-from com.ERP_Item import Item
+from com.erp_business_partner import Customer, Supplier
+from com.erp_object import ErpObject
+from sls.erp_sales_order import SalesOrder
+from com.erp_item import Item, ItemBOM
 
 
 def main():
@@ -12,11 +12,19 @@ def main():
     customer_2 = Customer('Transylvania & Co"', 9729219092)
     supplier_1 = Supplier('Heavy Mechanics & Technology"', 9729219093, 14)
     supplier_2 = Supplier('Sinaps Corporation', 9729219094, 6)
-    # Create Items
+    # Create Items and BOMs
     item_1 = Item('Engine Block FT 0921', supplier_1, 123.56, 'pcs', 120.00, 1.2, 0.7, 1.1, True)
     item_2 = Item('Engine Part 001', supplier_2, 60.0, 'pcs', 40.60, 0, 0, 0, False)
+    item_3 = Item('Metal bolt DF64', supplier_2, 10.0, 'pcs', 0, 0, 0, 0, False)
     print(item_1)
     print(item_2)
+    bom_item_1 = ItemBOM(item_1)
+    bom_item_1.add_child(item_2)
+    bom_item_1.add_child(item_3)
+    print(f'Printing of BOM for main item: {bom_item_1.main_item.id}')
+    for sub_item in bom_item_1:  # using iterator of class ItemBOM
+        print(sub_item)
+
     # Create sales order
     sales_order_1 = SalesOrder(101,
                                customer_1,

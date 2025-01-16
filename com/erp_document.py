@@ -3,8 +3,8 @@ from datetime import datetime as dt, date
 from decimal import Decimal, getcontext
 from typing import Optional
 
-from com.ERP_Object import ErpObject
-import com.ERP_Master_Data
+from com.erp_object import ErpObject
+import com.erp_master_data
 
 # Precision of rounding amounts
 ROUND_AMOUNTS = 2
@@ -27,7 +27,7 @@ class Document(ErpObject):
         self.business_entity = business_entity
         self.verify_currency(doc_currency)
         self.currency = doc_currency
-        self.local_currency = com.ERP_Master_Data.business_entities[business_entity][0]['local_currency']
+        self.local_currency = com.erp_master_data.business_entities[business_entity][0]['local_currency']
         self.date_created = dt.now().date()
         # Get currency rate and calculate amount in local currency if document currency differs from local currency.
         if self.currency != self.local_currency:
@@ -63,7 +63,7 @@ class Document(ErpObject):
         currency_rate = None
         local_currency_amount = 0.00
         if doc_date:
-            currency_rate = com.ERP_Master_Data.calculate_currency_rate(currency, doc_date)
+            currency_rate = com.erp_master_data.calculate_currency_rate(currency, doc_date)
             if currency_rate:
                 local_currency_amount = round(float(Decimal(str(amount)) * currency_rate), ROUND_AMOUNTS)
         return currency_rate, local_currency_amount
