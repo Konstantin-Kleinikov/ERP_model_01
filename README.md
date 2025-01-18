@@ -1,6 +1,21 @@
 # ERP_model_01
-This simple ERP-model allows to create and handle business-partners, items, sales orders and financial documents
-using different patterns and techniques in Object-Oriented Python Programming.
+This model has been developed for the purpose of researching and analyzing the various 
+patterns and techniques in Object-Oriented Programming via Python, that can be applied 
+when creating a web application for a business area of enterprise resource planning (ERP). 
+
+Additionally, the project should provide insight into the potential pros and cons of 
+developing a business application using an object-oriented approach, as compared to 
+the BaanC language used in the development of the ERP system Baan/LN.
+
+The functional scope of this model is limited by the following simplified business case:
+* Generated master data required for: 
+  * business partners (customers and suppliers) 
+  * warehouses 
+  * items (goods, materials).
+* Generate some inventory transactions for item stock availability
+* Create multiple sales orders with planned delivery dates
+* Create a simple planning logic to calculate item stock availability at sales order delivery dates
+* Generate purchase orders for non-available stock quantities, respecting suppliers lead time
 
 The [main.py](https://github.com/Konstantin-Kleinikov/ERP_model_01/blob/master/main.py) module runs the creation and handling of objects.
 
