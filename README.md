@@ -41,9 +41,9 @@ Module [erp_business_partner.py](https://github.com/Konstantin-Kleinikov/ERP_mod
 Module [erp_item.py](https://github.com/Konstantin-Kleinikov/ERP_model_01/blob/master/com/erp_item.py) is used for:
 * definition of Item and ItemBOM classes via @dataclass decorator:
   * Class Item defines attributed and method for items (goods) that are purchased
-    * from suppliers or produced at company's job shop
+    from suppliers or produced at company's job shop
   * Class ItemBOM defines the Bill-of-Material structure: main item and sub-items that is
-    * used in company's job shop
+    used in company's job shop
 
 ### Sales (sls)
 Module [erp_sales_order.py](https://github.com/Konstantin-Kleinikov/ERP_model_01/blob/master/sls/erp_sales_order.py) is used for:
