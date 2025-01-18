@@ -1,5 +1,5 @@
 # ERP_model_01
-This model has been developed for the purpose of researching and analyzing the various 
+This model is currently being developed for the purpose of researching and analyzing the various 
 patterns and techniques in Object-Oriented Programming via Python, that can be applied 
 when creating a web application for a business area of enterprise resource planning (ERP). 
 
@@ -8,7 +8,7 @@ developing a business application using an object-oriented approach, as compared
 the BaanC language used in the development of the ERP system Baan/LN.
 
 The functional scope of this model is limited by the following simplified business case:
-* Generated master data required for: 
+* Generate master data required for: 
   * business partners (customers and suppliers) 
   * warehouses 
   * items (goods, materials).
