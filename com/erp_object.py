@@ -3,12 +3,27 @@ import csv, os
 
 
 PROJECT_PATH = os.getcwd() + os.sep  # use the 'get current working directory' function
-last_used_numbers: dict[str, int] = dict()
+last_used_numbers: dict[str, int] = {}
 
 class ErpObject:
+    """
+    Top super-class for all erp objects.
 
+    Attributes
+    ----------
+    :erp_version: str, the current version of module
+    :erp_object_type: str, class name of object
+
+    Methods
+    ---------
+    :check_csv_file_exists(csv_file): bool, class method
+    :load_data_from_csv(csv_file): dict, class method
+    :write_object_to_csv(): None, object method
+    :generate_new_seq_number(numbering_prefix): str, static method
+
+    """
     def __init__(self, numbering_prefix=None):
-        self.erp_version = 'LN 10.8 084'
+        self.erp_version = 'ERP-module-01'
         self.erp_object_type = type(self).__name__
         if numbering_prefix:
             self.id = ErpObject.generate_new_seq_number(numbering_prefix)
@@ -16,13 +31,13 @@ class ErpObject:
 
 
     @classmethod
-    def check_csv_file_exists(cls, csv_file) -> bool:
+    def check_csv_file_exists(cls, csv_file: str) -> bool:
         """
         Checks whether the CSV-file exists for ERP object or not.
 
         If file exists then the check is done on whether it is empty or not.
 
-        :param csv_file: CSV-file name
+        :param csv_file: str, CSV-file name
         :return: True or False
         """
         search_file = PROJECT_PATH + csv_file
@@ -30,13 +45,19 @@ class ErpObject:
 
 
     @classmethod
-    def load_data_from_csv(cls, csv_file):
-        if ErpObject.check_csv_file_exists(csv_file):
+    def load_data_from_csv(cls, csv_file: str) -> dict:
+        """
+        Gets data from csv file and put it to dictionary
+
+        :param csv_file: csv file name
+        :return: dictionary with data from csv file
+        """
+        if cls.check_csv_file_exists(csv_file):
             with open(csv_file) as csvfile:
                 reader = csv.DictReader(csvfile, delimiter='~')
-                fieldnames = list(reader.fieldnames)
+                field_names = reader.fieldnames
                 for row in reader:
-                    last_used_numbers[row[fieldnames[0]]] = int(row[fieldnames[1]])
+                    last_used_numbers[row[field_names[0]]] = int(row[field_names[1]])
         print(last_used_numbers)
         return last_used_numbers
 
@@ -63,7 +84,7 @@ class ErpObject:
                 writer.writerow(input_data)
 
     @staticmethod
-    def generate_new_seq_number(numbering_prefix):
+    def generate_new_seq_number(numbering_prefix: str) -> str:
         """
         Generate new sequence number for specified ERP object type.
 
@@ -74,9 +95,9 @@ class ErpObject:
 
         try:
             last_number = last_used_numbers[numbering_prefix]
-        except IndexError:
+        except IndexError as e:
             # Last used sequence number not found for prefix and object_type
-            return None
+            return f'IndexError: {e}'
         else:
             last_number += 1
             last_used_numbers[numbering_prefix] = last_number
