@@ -55,3 +55,11 @@ Module [erp_sales_order.py](https://github.com/Konstantin-Kleinikov/ERP_model_01
 
 ### Interim files
 CSV-files are used to temporary store the data of created ERP objects. 
+
+## Python and additional software & modules
+
+### Python interpreter
+The version of `Python 3.13.0` is used in this project.
+
+### UML diagrams
+UML diagrams are be created with the http://draw.io diagram editor.

@@ -64,16 +64,29 @@ class ErpObject:
 
     def write_object_to_csv(self) -> None:
         """
-        Writes ERP object to dedicated CSV-file.
+        Writes ERP object to a CSV file.
+
+        The write_object_to_csv method is designed to write the attributes of an ERP object to a CSV file.
+        This method is part of the ErpObject class and does not return any value (None).
+
+        First, the method constructs the name of the CSV file by converting the class name of the object to
+        lowercase and appending an 's' and the '.csv' extension.
+        Next, it gathers the object's attributes into a dictionary (input_data) and extracts the keys of this
+        dictionary to use as field names for the CSV file.
+        The method then checks if the CSV file already exists using the check_csv_file_exists class method.
+        If the file exists, it opens the file in append mode and writes the object's data as a new row.
+        If the file does not exist, it opens the file in write mode, writes the header (field names),
+        and then writes the object's data as the first row.
+        This method ensures that the ERP object's data is correctly written to a CSV file, either by appending
+        to an existing file or creating a new one with the appropriate headers.
 
         :param self: ERP object
-        :return: new CSV-file with record or new record in existing CSV-file
         """
         csv_file = type(self).__name__.lower() + 's' + '.csv'
         input_data = self.__dict__
         field_names = [key for key in input_data.keys()]
 
-        if ErpObject.check_csv_file_exists(csv_file):
+        if self.check_csv_file_exists(csv_file):
             with open(csv_file, 'a', newline='') as csvfile:  # encoding='utf-8',
                 writer = csv.DictWriter(csvfile, fieldnames=field_names, delimiter='~', dialect='excel')
                 writer.writerow(input_data)
